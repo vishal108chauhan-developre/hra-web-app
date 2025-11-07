@@ -1,0 +1,202 @@
+/* Container */
+.asset-container {
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 5px;
+  background: #ffffff;
+  border-radius: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title */
+.asset-title {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 5px;
+  color: #343a40;
+}
+
+/* Error */
+.asset-error {
+  color: #dc3545;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.asset-card {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.asset-card h3 {
+  margin-bottom: 0px;
+  font-size: 20px;
+  color: #114578;
+}
+
+/* Asset List */
+.asset-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Asset Item */
+.asset-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 117px;
+  padding: 2px;
+  background: #ffffff;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  transition: background 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  border-style: solid;
+  /* ✅ Required for border to appear */
+  border-color: #e3e7eb;
+  /* ✅ Border color */
+}
+
+
+.asset-list-item:hover {
+  background: #f3f4f5;
+  border-color: #91acc8;
+  /* background-color: #f0f8ff; */
+}
+
+/* Thumbnail */
+.asset-thumb {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Asset Info */
+.asset-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 115px;
+  padding: 0px;
+  background: #ffffff;
+  border-radius: 6px;
+  text-align: center;
+  position: relative;
+  transition: background 0.3s;
+  box-shadow: 0 2px 8px rgba(1, 0, 0, 0.09);
+}
+
+/* Asset Name */
+.asset-name {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #343a40;
+  font-size: 14px;
+}
+
+/* Asset Status */
+.asset-status {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+/* Checkbox */
+.asset-list-item input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Submit Button */
+.asset-submit-btn {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 30px auto 0;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.asset-submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.asset-submit-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .asset-list {
+    justify-content: center;
+  }
+
+
+
+  .asset-name {
+    font-size: 13px;
+  }
+}
+
+/* Name and Status Row */
+.asset-label-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 2px;
+  box-shadow: 0 2px 8px rgba(1, 0, 0, 0.09);
+  width: 115px;
+  background-color: #fefefe;
+  border-radius: 5px;
+}
+
+.asset-summary {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #f7f7f7;
+  border-radius: 6px;
+  width: 97%;
+}
+
+.asset-summary h4 {
+  margin-bottom: 0.0rem;
+}
+
+.asset-total-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0rem;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  list-style: none;
+}
+
+.asset-total-list li {
+  flex: 1 1 auto;
+  min-width: 120px;
+  font-weight: 500;
+}

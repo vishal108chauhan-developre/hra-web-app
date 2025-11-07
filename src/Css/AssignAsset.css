@@ -1,0 +1,150 @@
+/* Container */
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #343a40;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin: 15px 0 6px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Dropdowns */
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Asset Buttons Container */
+.asset-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Asset Button */
+.assetBtn {
+  padding: 10px 14px;
+  background-color: #e9ecef;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.assetBtn:hover {
+  background-color: #dee2e6;
+}
+
+.assetBtn.selected {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Image Upload Section */
+.asset-buttons input[type="file"] {
+  margin-top: 8px;
+}
+
+.asset-buttons img {
+  display: block;
+  margin-top: 6px;
+  max-width: 100px;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Submit Button */
+.submitBtn {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 20px;
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  max-width: 300px;
+}
+
+.submitBtn:hover {
+  background-color: #218838;
+}
+
+.submitBtn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Error Message */
+.error {
+  color: #dc3545;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .asset-buttons {
+    justify-content: center;
+  }
+
+  .assetBtn {
+    flex: 1 1 100px;
+    text-align: center;
+  }
+
+  .asset-buttons img {
+    max-width: 80px;
+  }
+
+  select {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .submitBtn {
+    font-size: 15px;
+  }
+
+  .assetBtn {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+}
