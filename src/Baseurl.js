@@ -1,4 +1,4 @@
-export const url = "http://localhost:8000/";
+export const url = process.env.REACT_APP_API_URL;
 
 //http://192.168.12.181:8000/
 //"http://10.0.2.2:8000/"; local Emulator
