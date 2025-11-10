@@ -1,59 +1,51 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import LeaveCard from '../Component/LeaveCard';
 import { url } from '../Baseurl';
-import { useNavigate } from 'react-router-dom'; // ✅ Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import '../Css/DashboardScreen.css';
 
 export default function Leave() {
     const [leaves, setLeaves] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [admin, setAdmin] = useState("");
+    const [admin, setAdmin] = useState('');
+    const navigate = useNavigate();
 
-
-    const navigate = useNavigate(); // ✅ Initialize navigate here
-
+    // ✅ Removed 'navigate' from dependency array
     const fetchLeaves = useCallback(async () => {
         setLoading(true);
         try {
-            // const userCode = localStorage.getItem("userCode");
-            const username = localStorage.getItem("role");
-
+            const username = localStorage.getItem('role');
             setAdmin(username);
 
-            const token = localStorage.getItem("U_Token");
+            const token = localStorage.getItem('U_Token');
             const response = await fetch(`${url}/assigned-leaves`, {
                 headers: {
-                    "Authorization": `Bearer ${token}`
-                }
+                    Authorization: `Bearer ${token}`,
+                },
             });
 
             const data = await response.json();
-            console.log(data)
-            setLeaves(data); // Assuming you maintain a leaves state
+            console.log(data);
+            setLeaves(data || []);
         } catch (err) {
             console.error('Failed to fetch leaves:', err);
             setLeaves([]);
         } finally {
             setLoading(false);
         }
-    }, [navigate]);
+    }, []); // ✅ No navigate dependency
 
     useEffect(() => {
         fetchLeaves();
-        // userdeparment();
-        // uerAll();
     }, [fetchLeaves]);
-
-
 
     return (
         <div style={styles.container}>
-
-            {admin !== "manager" && (
+            {admin !== 'manager' && (
                 <div style={styles.buttonRow}>
                     <button
                         style={{ ...styles.updateBtn, backgroundColor: 'green' }}
-                        onClick={() => navigate('/Add')} // ✅ No error now
+                        onClick={() => navigate('/Add')}
                     >
                         Add Leave
                     </button>
@@ -99,13 +91,5 @@ const styles = {
         border: 'none',
         cursor: 'pointer',
         marginRight: '10px',
-    },
-    contentRow: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
-        gap: '20px',
-        flexWrap: 'wrap',
-        backgroundColor: 'red'
     },
 };
