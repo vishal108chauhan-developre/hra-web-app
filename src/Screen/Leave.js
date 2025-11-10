@@ -10,30 +10,27 @@ export default function Leave() {
     const [admin, setAdmin] = useState('');
     const navigate = useNavigate();
 
-    // ✅ Removed 'navigate' from dependency array
     const fetchLeaves = useCallback(async () => {
         setLoading(true);
         try {
-            const username = localStorage.getItem('role');
-            setAdmin(username);
+            const role = localStorage.getItem('role');
+            setAdmin(role);
 
             const token = localStorage.getItem('U_Token');
             const response = await fetch(`${url}/assigned-leaves`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
+                headers: { Authorization: `Bearer ${token}` },
             });
 
+            if (!response.ok) throw new Error('Failed to fetch leaves');
             const data = await response.json();
-            console.log(data);
-            setLeaves(data || []);
+            setLeaves(Array.isArray(data) ? data : []);
         } catch (err) {
             console.error('Failed to fetch leaves:', err);
             setLeaves([]);
         } finally {
             setLoading(false);
         }
-    }, []); // ✅ No navigate dependency
+    }, []);
 
     useEffect(() => {
         fetchLeaves();
@@ -56,7 +53,7 @@ export default function Leave() {
                 <p>Loading...</p>
             ) : (
                 <div style={{ marginTop: '20px' }}>
-                    {Array.isArray(leaves) && leaves.length > 0 ? (
+                    {leaves.length > 0 ? (
                         leaves.map((item) => (
                             <LeaveCard
                                 key={item._id}
@@ -75,10 +72,7 @@ export default function Leave() {
 }
 
 const styles = {
-    container: {
-        padding: '20px',
-        fontFamily: 'Arial',
-    },
+    container: { padding: '20px', fontFamily: 'Arial' },
     buttonRow: {
         display: 'flex',
         justifyContent: 'flex-start',
