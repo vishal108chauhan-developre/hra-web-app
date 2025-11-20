@@ -41,7 +41,7 @@ const ReviewTable = () => {
     }
 
     return (
-        <div style={{ padding: "20px" }}>
+        <div style={{ padding: "0px" }}>
             <h2
                 style={{
                     fontSize: "20px",

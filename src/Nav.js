@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import "./Css/Nav.css";   // ⬅️ NEW CSS FILE
+import "./Css/Nav.css";
 
 function Nav() {
     const navigate = useNavigate();
@@ -19,59 +19,65 @@ function Nav() {
 
     return (
         <header className="nav-header">
-            {/* Logo */}
+            {/* LEFT: Logo + Brand */}
             <div className="nav-left">
                 <img
                     src="/Applogcurcle.jpg"
-                    alt="App Logo"
-                    className="nav-logo"
+                    alt="Logo"
+                    className="nav-logo rotate-logo"   // ⭐ ROTATING LOGO
                 />
                 <span className="brand">Smart HR</span>
             </div>
 
-            {/* Hamburger for Mobile */}
+            {/* HAMBURGER */}
             <div
                 className={`hamburger ${menuOpen ? "open" : ""}`}
                 onClick={() => setMenuOpen(!menuOpen)}
             >
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
 
             {/* MENU */}
             <nav className={`nav-menu ${menuOpen ? "show" : ""}`}>
-                {username ? (
-                    <ul>
-                        <li><NavLink to="/" className={getActive}>Dashboard</NavLink></li>
-                        <li><NavLink to="/Leave" className={getActive}>Leave</NavLink></li>
+                <ul>
+                    {username ? (
+                        <>
+                            <li><NavLink to="/" className={getActive}>Dashboard</NavLink></li>
 
-                        {role !== "manager" && (
-                            <li><NavLink to="/Add" className={getActive}>Add Leave</NavLink></li>
-                        )}
+                            <li><NavLink to="/Leave" className={getActive}>Leave</NavLink></li>
 
-                        <li><NavLink to="/Profile" className={getActive}>Profile</NavLink></li>
-                        <li><NavLink to="/AssinnAssest" className={getActive}>Assigned Assets</NavLink></li>
+                            {role !== "manager" && (
+                                <li><NavLink to="/Add" className={getActive}>Add Leave</NavLink></li>
+                            )}
 
-                        {role !== "employee" && (
-                            <li><NavLink to="/AddAssest" className={getActive}>Add Asset</NavLink></li>
-                        )}
+                            <li><NavLink to="/Profile" className={getActive}>Profile</NavLink></li>
 
-                        <li><NavLink to="/Review" className={getActive}>Review</NavLink></li>
-                        <li><NavLink to="/ReviewForm" className={getActive}>Review Form</NavLink></li>
+                            <li><NavLink to="/AssinnAssest" className={getActive}>Assigned Assets</NavLink></li>
 
-                        <li>
-                            <button onClick={logoutmethod} className="logout-btn">
-                                Logout ({username})
-                            </button>
-                        </li>
-                    </ul>
-                ) : (
-                    <ul>
-                        <li><NavLink to="/SignUp" className={getActive}>SignUp</NavLink></li>
-                        <li><NavLink to="/Login" className={getActive}>Login</NavLink></li>
-                    </ul>
-                )}
+                            {role !== "employee" && (
+                                <li><NavLink to="/AddAssest" className={getActive}>Add Asset</NavLink></li>
+                            )}
+
+                            <li><NavLink to="/Review" className={getActive}>Review</NavLink></li>
+
+                            <li><NavLink to="/ReviewForm" className={getActive}>Review Form</NavLink></li>
+
+                            <li>
+                                <button
+                                    onClick={logoutmethod}
+                                    className="logout-btn"
+                                >
+                                    Logout ({username})
+                                </button>
+                            </li>
+                        </>
+                    ) : (
+                        <>
+                            <li><NavLink to="/SignUp" className={getActive}>SignUp</NavLink></li>
+                            <li><NavLink to="/Login" className={getActive}>Login</NavLink></li>
+                        </>
+                    )}
+                </ul>
             </nav>
         </header>
     );
