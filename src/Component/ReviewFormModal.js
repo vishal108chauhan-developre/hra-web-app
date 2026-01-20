@@ -3,8 +3,7 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import Modal from "./Modal";
 import "../Css/ReviewFormModal.css";
-
-const url = "http://localhost:8000";
+import { url } from "../Baseurl";
 
 export default function ReviewFormModal({ open, onClose, onSuccess }) {
     const [employees, setEmployees] = useState([]);
