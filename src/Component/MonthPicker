@@ -1,0 +1,60 @@
+import React, { useState } from "react";
+import "./MonthPicker.css";
+
+const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
+
+
+export default function MonthPicker({ value, onChange }) {
+    const currentYear = new Date().getFullYear();
+    const [year, setYear] = useState(currentYear);
+    const [open, setOpen] = useState(false);
+
+    const selectMonth = index => {
+        const month = String(index + 1).padStart(2, "0");
+        onChange(`${year}-${month}`);
+        setOpen(false);
+    };
+
+    return (
+        <div className="month-picker">
+            <input
+                type="text"
+                readOnly
+                value={value}
+                placeholder="Select Month"
+                onClick={() => setOpen(!open)}
+            />
+
+            {open && (
+                <div className="calendar">
+                    <div className="calendar-header">
+                        <button type="button" onClick={() => setYear(y => y - 1)}>
+                            Prev
+                        </button>
+
+                        <span>{year}</span>
+
+                        <button type="button" onClick={() => setYear(y => y + 1)}>
+                            Next
+                        </button>
+                    </div>
+
+                    <div className="months">
+                        {months.map((m, i) => (
+                            <button
+                                key={m}
+                                type="button"
+                                onClick={() => selectMonth(i)}
+                            >
+                                {m}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+}

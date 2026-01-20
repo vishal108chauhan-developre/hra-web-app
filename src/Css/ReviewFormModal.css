@@ -1,0 +1,121 @@
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: Arial, sans-serif;
+    width: 100%;
+}
+
+.error-box {
+    padding: 8px;
+    background: #ffe6e6;
+    color: #d8000c;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.form-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.employee-month-row {
+    justify-content: space-between;
+}
+
+.field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+}
+
+.field label {
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.field input,
+.field select,
+.kpa-card input,
+.kpa-card textarea {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.add-kpa-btn,
+.submit-btn,
+.remove-kpa-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.add-kpa-btn {
+    background: #1976d2;
+    color: #fff;
+    height: 38px;
+    align-self: flex-end;
+}
+
+.submit-btn {
+    background: #28a745;
+    color: #fff;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.kpa-card {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    background: #fafafa;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 10px;
+    align-items: center;
+}
+
+.kpa-card textarea {
+    flex: 2 1 200px;
+}
+
+.kpa-card input {
+    flex: 1 1 150px;
+}
+
+.kpa-index {
+    font-weight: 600;
+    width: 20px;
+    text-align: center;
+}
+
+.remove-kpa-btn {
+    background: #e53935;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .employee-month-row .add-kpa-btn {
+        width: 100%;
+    }
+
+    .kpa-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .kpa-card input,
+    .kpa-card textarea {
+        width: 100%;
+    }
+}
